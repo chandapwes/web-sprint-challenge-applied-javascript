@@ -1,4 +1,19 @@
 const Tabs = (topics) => {
+  const topicsV = document.createElement('div');
+  topicsV.classList.add('topics');
+
+  const topicsX = document.createElement('div');
+  topicsX.classList.add('tab');
+  topicsX.textContent = topics;
+
+  const topicsY = document.createElement('div');
+  topicsY.classList.add('tab');
+  topicsY.textContent = topics;
+
+  const topicsZ = document.createElement('div');
+  topicsZ.classList.add('tab');
+  topicsZtextContent = topics;
+
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -16,6 +31,7 @@ const Tabs = (topics) => {
 }
 
 const tabsAppender = (selector) => {
+  
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
