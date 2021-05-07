@@ -1,24 +1,24 @@
 import axios from "axios";
 
-const Tabs = (topics) => {
-  const topicsV = document.createElement('div');
-  topicsV.classList.add('topics');
+const Tabs = ({topics}) => {
+  const topic = document.createElement('div');
+  topic.classList.add('topics');
 
-  const topicsX = document.createElement('div');
-  topicsX.classList.add('tab');
-  topicsX.textContent = topics;
+  const topic1 = document.createElement('div');
+  topic1.classList.add('tab');
+  topic1.textContent = topics;
 
-  const topicsY = document.createElement('div');
-  topicsY.classList.add('tab');
-  topicsY.textContent = topics;
+  // const topic2 = document.createElement('div');
+  // topic2.classList.add('tab');
+  // topic2.textContent = topics;
 
-  const topicsZ = document.createElement('div');
-  topicsZ.classList.add('tab');
-  topicsZ.textContent = topics;
+  // const topic3 = document.createElement('div');
+  // topic3.classList.add('tab');
+  // topic3.textContent = topics;
 
-  topicsV.appendChild(topicsX);
-  topicsV.appendChild(topicsY);
-  topicsV.appendChild(topicsZ);
+  topic.appendChild(topic1);
+  // topic.appendChild(topic2);
+  // topic.appendChild(topic3);
 
 
   // TASK 3
@@ -35,19 +35,30 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-  return topicsV;
+  return topic;
 }
 
-// axios
-//   .get(`https://lambda-times-api.herokuapp.com/topics`)
-//   .then((res) => {
-//     console.log(res)
-    
-//   .catch((err) => {
-//     console.log(err)
-//   })
+
+const tabsContent = document.querySelector('.tabs-container')
+
 
 const tabsAppender = (selector) => {
+  axios 
+  .get(`https://lambda-times-api.herokuapp.com/topics`)
+  .then((res) => {
+  const topicS = res.data.topics;
+  
+  topicS.forEach((topics) => {
+    const tab = Tabs({topics})
+    tabsContent.appendChild(tab)
+  })
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    console.log('done')
+  })
 
   // TASK 4
   // ---------------------
