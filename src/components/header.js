@@ -1,6 +1,6 @@
-const Header = (title, date, temp) => {
-  const headerX = document.createElement('div');
-  headerX.classList.add('header');
+const Header = ({ title, date, temp }) => {
+  const header = document.createElement('div');
+  header.classList.add('header');
 
 
   const dateX = document.createElement('span');
@@ -9,7 +9,6 @@ const Header = (title, date, temp) => {
 
 
   const titleX = document.createElement('h1');
-  titleX.classList.add('title')
   titleX.textContent = title;
 
 
@@ -17,9 +16,10 @@ const Header = (title, date, temp) => {
   tempX.classList.add('temp');
   tempX.textContent = temp;
 
-  headerX.appendChild(date);
-  headerX.appendChild(temp);
-  dateX.appendChild(title);
+  header.appendChild(dateX);
+  header.appendChild(titleX);
+  header.appendChild(tempX);
+
 
   // TASK 1
   // ---------------------
@@ -33,10 +33,17 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //)
+  return header;
 }
 
+const test = Header({title: 'test title', date: 'test date', temp: 'test temp'})
+console.log(test)
+
+const headerContent = document.querySelector('.header-container')
 const headerAppender = (selector) => {
- selector.appendChild;
+  const siteHeader = Header({title: 'Applied JS', date: 'May 7th', temp: 'Warm'})
+  return headerContent.appendChild(siteHeader)
+  
 
   // TASK 2
   // ---------------------
